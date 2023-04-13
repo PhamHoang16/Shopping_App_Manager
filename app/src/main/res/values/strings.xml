@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">App Quản lí</string>
+    <string name="gi_2500">Giá: 2500đ</string>
+    <string name="t_n_s_n_ph_m">Tên sản phẩm</string>
+    <string name="th_m_v_o_gi_h_ng">Thêm vào giỏ hàng</string>
+    <string name="m_t_chi_ti_t_s_n_ph_m">Mô tả </string>
+    <string name="m_t_chi_ti_t_s_n_ph_m2">Mô tả chi tiết sản phẩm</string>
+    <string name="gi_h_ng_tr_ng">Giỏ hàng trống</string>
+    <string name="t_ng_thanh_to_n">Tổng thanh toán:</string>
+    <string name="_50_000">50.000</string>
+    <string name="mua_h_ng">Mua hàng</string>
+    <string name="s_n_ph_m_m_i_nh_t">Sản phẩm mới nhất</string>
+    <string name="t_n_s_n_ph_m2">Tên sản phẩm</string>
+    <string name="_25000">25000đ</string>
+    <string name="t_n_s_n_ph_m3">Tên sản phẩm</string>
+    <string name="gi_250000">Giá: 250000đ</string>
+    <string name="m_t">Mô tả:</string>
+    <string name="qu_n_o">Quần Áo</string>
+    <string name="gi_1000000d">Giá: 1000000d</string>
+    <string name="ng_nh_p">Đăng nhập</string>
+    <string name="nh_p_s_n_ph_m_c_n_t_m">Nhập sản phẩm cần tìm</string>
+</resources>

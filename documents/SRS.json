@@ -1,0 +1,745 @@
+{
+  "id": "SRS",
+  "guid": "0177952a-1cc9-4788-a8df-953660ea5f8e",
+  "name": "Software Requirements Specification",
+  "lastId": 37,
+  "createdOn": "2023-02-28T00:10:34.871Z",
+  "createdBy": {
+    "name": "Pham Hoang",
+    "email": "hoangpham1618@gmail.com",
+    "company": "UET-VNU"
+  },
+  "lastChangedOn": "2023-02-28T00:50:06.919Z",
+  "lastChangedBy": {
+    "name": "Pham Hoang",
+    "email": "hoangpham1618@gmail.com",
+    "company": "UET-VNU"
+  },
+  "helpRef": "ISO/IEC/IEEE 29148:2018",
+  "data": [
+    {
+      "id": "1",
+      "guid": "356df4e3-5184-4885-81ea-72463c19625d",
+      "heading": "Introduction",
+      "helpRef": "8.5",
+      "type": "SEC",
+      "children": [
+        {
+          "id": "2",
+          "guid": "bde3f9c5-07fe-489b-ac4d-f788c2b508f2",
+          "heading": "Purpose",
+          "helpRef": "9.6.2",
+          "type": "SEC"
+        },
+        {
+          "id": "3",
+          "guid": "48a8685e-2a17-4e39-aa14-c152a2a05f3a",
+          "heading": "Scope",
+          "helpRef": "9.6.3",
+          "type": "SEC"
+        },
+        {
+          "id": "4",
+          "guid": "56d8b643-9955-4fb4-8c86-3691d21706cc",
+          "heading": "Product perspective",
+          "helpRef": "9.6.4",
+          "type": "SEC",
+          "children": [
+            {
+              "id": "5",
+              "guid": "8cf6b71b-030b-4556-bc2e-ac530d65df82",
+              "heading": "System interfaces",
+              "helpRef": "9.6.4.1",
+              "type": "SEC"
+            },
+            {
+              "id": "6",
+              "guid": "771251ed-4f73-41c7-b64c-87110bb67fd0",
+              "heading": "User interfaces",
+              "helpRef": "9.6.4.2",
+              "type": "SEC"
+            },
+            {
+              "id": "7",
+              "guid": "da1a83ac-4533-45df-945b-fe99fc0e7838",
+              "heading": "Hardware interfaces",
+              "helpRef": "9.6.4.3",
+              "type": "SEC"
+            },
+            {
+              "id": "8",
+              "guid": "88f3bf65-5afd-41f0-9221-e21c1b24bae2",
+              "heading": "Software interfaces",
+              "helpRef": "9.6.4.4",
+              "type": "SEC"
+            },
+            {
+              "id": "9",
+              "guid": "748e3d1b-3b88-429c-b87e-42bb1674f72c",
+              "heading": "Communications interfaces",
+              "helpRef": "9.6.4.5",
+              "type": "SEC"
+            },
+            {
+              "id": "10",
+              "guid": "ea6ac1e2-8999-440a-8b4f-a12d3da2d739",
+              "heading": "Memory constraints",
+              "helpRef": "9.6.4.6",
+              "type": "SEC"
+            },
+            {
+              "id": "11",
+              "guid": "609c2124-b034-4345-a203-34d021eb5005",
+              "heading": "Operations",
+              "helpRef": "9.6.4.7",
+              "type": "SEC"
+            },
+            {
+              "id": "12",
+              "guid": "85ae2796-d20d-497a-9e4e-cbe34db9d33e",
+              "heading": "Site adaptation requirements",
+              "helpRef": "9.6.4.8",
+              "type": "SEC"
+            },
+            {
+              "id": "13",
+              "guid": "6777a56e-6952-4865-880a-686f996a9446",
+              "heading": "Interfaces with  services",
+              "helpRef": "9.6.4.9",
+              "type": "SEC"
+            }
+          ]
+        },
+        {
+          "id": "14",
+          "guid": "080b39ad-c166-448a-8434-982502ad102e",
+          "heading": "Product functions",
+          "helpRef": "9.6.5",
+          "type": "SEC"
+        },
+        {
+          "id": "15",
+          "guid": "7e1910b4-9d83-4355-93fe-18eb8838defa",
+          "heading": "User  characteristics",
+          "helpRef": "9.6.6",
+          "type": "SEC"
+        },
+        {
+          "id": "16",
+          "guid": "1e97629e-a137-4cb5-85df-e288bab7cce0",
+          "heading": "Limitations",
+          "helpRef": "9.6.7",
+          "type": "SEC"
+        },
+        {
+          "id": "17",
+          "guid": "5dd513c7-054d-44a4-a0f3-61f3783f75eb",
+          "heading": "Assumptions and dependencies",
+          "helpRef": "9.6.8",
+          "type": "SEC"
+        },
+        {
+          "id": "18",
+          "guid": "8f4d33d0-313e-4723-8e61-c6142be82321",
+          "heading": "Definitions",
+          "helpRef": "9.2.3",
+          "type": "SEC"
+        },
+        {
+          "id": "19",
+          "guid": "fd2ff8ca-03a4-44e9-bafb-f5fead52c241",
+          "heading": "Acronyms and abbreviations",
+          "helpRef": "9.2.5",
+          "type": "SEC"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "guid": "e7bccfcc-4f2c-42a5-b771-e7f50c033ad6",
+      "heading": "Requirements",
+      "helpRef": "9.6.10",
+      "type": "SEC",
+      "children": [
+        {
+          "id": "21",
+          "guid": "4f7be58b-48f3-46f9-89cf-9f97dbdbd080",
+          "heading": "External interfaces",
+          "helpRef": "9.6.11",
+          "type": "SEC"
+        },
+        {
+          "id": "22",
+          "guid": "344e360d-5bdd-4423-9002-f426b466675f",
+          "heading": "Functions",
+          "helpRef": "9.6.12",
+          "type": "SEC",
+          "children": [
+            {
+              "id": "35",
+              "guid": "2a2dc476-1221-435b-9780-a96101f7a2bb",
+              "heading": "Đăng ký tài khoản và đăng nhập",
+              "text": "<ul><li>Người dùng đăng ký tài khoản bằng email</li><li>Người dùng có thể đăng nhập bằng tài khoản đã tạo</li></ul>",
+              "history": [
+                {
+                  "affectedNodeId": "22",
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:42:43.644Z",
+                  "docId": "SRS",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null,
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:43:05.604Z"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": "Đăn"
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:43:22.809Z"
+                }
+              ]
+            },
+            {
+              "id": "33",
+              "guid": "84228579-cf72-4eb4-bd41-d372a2bf8817",
+              "heading": "Tìm kiếm sản phẩm",
+              "text": "<ul><li>Người dùng có thể tìm kiếm sản phẩm theo tên sản phẩm</li></ul>",
+              "history": [
+                {
+                  "affectedNodeId": "22",
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:40:18.162Z",
+                  "docId": "SRS",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null,
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:41:15.207Z"
+                }
+              ]
+            },
+            {
+              "id": "32",
+              "guid": "36c0c693-82e9-46c1-981f-c59ef4b1cea5",
+              "heading": "Sắp xếp sản phẩm",
+              "text": "<ul><li>Người dùng có thể sắp xếp sản phẩm đã tìm kiếm theo mức giá, số lượng đã bán ra,....</li></ul>",
+              "status": "Draft",
+              "history": [
+                {
+                  "affectedNodeId": "22",
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:34:46.066Z",
+                  "docId": "SRS",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null,
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:37:22.517Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": "<ul><li>Người dùng đăng ký tài khoản bằng email hoặc số điện thoại</li></ul>"
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:38:16.175Z"
+                },
+                {
+                  "attributesChanged": {
+                    "status": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:38:39.960Z"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": "Đăng ký tài khoản và đăng nhập",
+                    "text": "<ul><li>Người dùng đăng ký tài khoản bằng email</li><li>Người dùng có thể đăng nhập bằng tài khoản đã tạo</li></ul>"
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:43:14.199Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:43:45.261Z"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:44:06.512Z"
+                }
+              ]
+            },
+            {
+              "id": "34",
+              "guid": "391e4378-44d0-484d-a3fc-e2475d7db3a4",
+              "heading": "Lọc sản phẩm",
+              "text": "<ul><li>Người dùng có thể lọc sản phẩm đã tìm kiếm theo các đặc tính của sản phẩm như giá cả, nhãn hiệu,...</li></ul>",
+              "history": [
+                {
+                  "affectedNodeId": "22",
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:41:39.293Z",
+                  "docId": "SRS",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null,
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:42:33.185Z"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": "Sắp xếp sản phẩm",
+                    "text": "<ul><li>Người dùng có thể sắp xếp sản phẩm đã tìm kiếm theo mức giá, số lượng đã bán ra,....</li></ul>"
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:43:54.040Z"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null,
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:45:34.231Z"
+                }
+              ]
+            },
+            {
+              "id": "36",
+              "guid": "aab9170f-4337-4d15-af59-5de2664b0744",
+              "heading": "Giỏ hàng",
+              "text": "<ul><li>Người dùng có thể thêm bớt sản phẩm vào giỏ hàng</li><li>Có thể chọn một hoặc nhiều sản phẩm trong giỏ hàng để thanh toán hoặc xoá khỏi giỏ hàng</li></ul>",
+              "history": [
+                {
+                  "affectedNodeId": "22",
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:45:48.954Z",
+                  "docId": "SRS",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null,
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:47:05.158Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": "<ul><li>Người dùng có thể thêm bớt sản phẩm vào giỏ hàng</li></ul>"
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:49:52.990Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": "<ul><li>Người dùng có thể thêm bớt sản phẩm vào giỏ hàng</li><li>Có thể chọn một hoặc nhiều sản phẩm trong giỏ hàng để thanh toán&nbsp;</li></ul>"
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:50:06.919Z"
+                }
+              ]
+            },
+            {
+              "id": "37",
+              "guid": "110615af-5274-45c2-8547-97ce595119a1",
+              "heading": "Thanh toán",
+              "text": "<ul><li>Người dùng có thể lựa chọn phương thức thanh toán (thanh toán khi nhận hàng, thanh toán trực tuyến qua Momo, ZaloPay)</li></ul>",
+              "history": [
+                {
+                  "affectedNodeId": "22",
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:47:50.343Z",
+                  "docId": "SRS",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null,
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "UET-VNU",
+                    "email": "hoangpham1618@gmail.com",
+                    "name": "Pham Hoang"
+                  },
+                  "changedOn": "2023-02-28T00:49:22.679Z"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "guid": "79177fc5-7756-49a6-8253-b1e2a30b2f95",
+          "heading": "Usability requirements",
+          "helpRef": "9.6.13",
+          "type": "SEC"
+        },
+        {
+          "id": "24",
+          "guid": "a31fb7a5-41a7-4690-94eb-6e9f5d19eca1",
+          "heading": "Performance requirements",
+          "helpRef": "9.6.14",
+          "type": "SEC"
+        },
+        {
+          "id": "25",
+          "guid": "fed40e93-ef55-4e0f-a8d6-c6e8a99870b2",
+          "heading": "Logical database requirements",
+          "helpRef": "9.6.15",
+          "type": "SEC"
+        },
+        {
+          "id": "26",
+          "guid": "fdcc0f24-6639-4925-9e97-93cebd24d7b4",
+          "heading": "Design constraints",
+          "helpRef": "9.6.16",
+          "type": "SEC"
+        },
+        {
+          "id": "27",
+          "guid": "3efc7c65-7971-496d-8541-27ebbaba91db",
+          "heading": "Standards compliance",
+          "helpRef": "9.6.17",
+          "type": "SEC"
+        },
+        {
+          "id": "28",
+          "guid": "dc9106de-c6a6-4766-93e6-38f27dcc03ab",
+          "heading": "Software system attributes",
+          "helpRef": "9.6.18",
+          "type": "SEC"
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "guid": "1863e2d5-9437-43b4-a39e-a37307f1ff43",
+      "heading": "Verification",
+      "helpRef": "9.6.19",
+      "type": "SEC"
+    },
+    {
+      "id": "30",
+      "guid": "8c4c1f76-6854-4701-b081-1defc5c2238c",
+      "heading": "Supporting information",
+      "helpRef": "9.6.20",
+      "type": "SEC"
+    },
+    {
+      "id": "31",
+      "guid": "f11a9e1b-e5e3-4f64-b305-cd869d079d2c",
+      "heading": "References",
+      "helpRef": "9.2.4",
+      "type": "SEC"
+    }
+  ],
+  "attributes": {
+    "difficulty": {
+      "name": "Difficulty",
+      "type": "enum",
+      "values": [
+        {
+          "key": "E",
+          "label": "Easy"
+        },
+        {
+          "key": "N",
+          "label": "Nominal"
+        },
+        {
+          "key": "D",
+          "label": "Difficult"
+        }
+      ]
+    },
+    "owner": {
+      "name": "Owner",
+      "type": "string"
+    },
+    "priority": {
+      "name": "Priority",
+      "type": "enum",
+      "values": [
+        {
+          "key": "L",
+          "label": "Low"
+        },
+        {
+          "key": "M",
+          "label": "Medium"
+        },
+        {
+          "key": "H",
+          "label": "High"
+        }
+      ]
+    },
+    "rationale": {
+      "name": "Rationale",
+      "type": "xhtml"
+    },
+    "source": {
+      "name": "Source",
+      "type": "string"
+    },
+    "status": {
+      "name": "Status",
+      "type": "enum",
+      "values": [
+        {
+          "key": "Draft"
+        },
+        {
+          "key": "Ready"
+        },
+        {
+          "key": "Reviewed"
+        },
+        {
+          "key": "Approved"
+        },
+        {
+          "key": "Released"
+        }
+      ]
+    },
+    "type": {
+      "name": "Type",
+      "type": "enum",
+      "values": [
+        {
+          "key": "FR",
+          "label": "Functional Requirement"
+        },
+        {
+          "key": "INT",
+          "label": "Interface Requirement"
+        },
+        {
+          "key": "NFR",
+          "label": "Non-func. Requirement"
+        },
+        {
+          "key": "SEC",
+          "label": "Section"
+        },
+        {
+          "key": "INF",
+          "label": "Information"
+        }
+      ]
+    },
+    "verMethod": {
+      "name": "Ver. Method",
+      "type": "enum",
+      "values": [
+        {
+          "key": "T",
+          "label": "Test"
+        },
+        {
+          "key": "D",
+          "label": "Demonstration"
+        },
+        {
+          "key": "I",
+          "label": "Inspection"
+        },
+        {
+          "key": "A",
+          "label": "Analysis"
+        }
+      ]
+    }
+  },
+  "view": {
+    "columns": [
+      {
+        "columnId": "id",
+        "hidden": false,
+        "width": 77
+      },
+      {
+        "attribute": "type",
+        "columnId": "type",
+        "hidden": false,
+        "width": 97
+      },
+      {
+        "columnId": "description",
+        "hidden": false,
+        "width": 372
+      },
+      {
+        "columnId": "discussion",
+        "hidden": true,
+        "width": 190
+      },
+      {
+        "columnId": "links",
+        "hidden": true,
+        "width": 196
+      },
+      {
+        "attribute": "source",
+        "columnId": "source",
+        "hidden": false,
+        "width": 150
+      },
+      {
+        "attribute": "rationale",
+        "columnId": "rationale",
+        "hidden": false,
+        "width": 150
+      },
+      {
+        "attribute": "priority",
+        "columnId": "priority",
+        "hidden": false,
+        "width": 96
+      },
+      {
+        "attribute": "status",
+        "columnId": "status",
+        "hidden": false,
+        "width": 86
+      },
+      {
+        "attribute": "verMethod",
+        "columnId": "verMethod",
+        "hidden": false,
+        "width": 105
+      },
+      {
+        "attribute": "difficulty",
+        "columnId": "difficulty",
+        "hidden": true,
+        "width": 108
+      },
+      {
+        "attribute": "owner",
+        "columnId": "owner",
+        "hidden": true,
+        "width": 106
+      },
+      {
+        "columnId": "attributes",
+        "hidden": true,
+        "width": 300
+      }
+    ]
+  },
+  "metadata": {
+    "format": "2.15"
+  }
+}
