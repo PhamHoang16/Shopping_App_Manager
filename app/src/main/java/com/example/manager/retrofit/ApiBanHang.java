@@ -77,7 +77,7 @@ public interface ApiBanHang {
     Observable<MessageModel> addProduct(
             @Field("name") String name,
             @Field("price") String price,
-            @Field("picture") String total_price,
+            @Field("picture") String picture,
             @Field("description") String description,
             @Field("type") int type
     );
