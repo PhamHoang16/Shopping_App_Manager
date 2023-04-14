@@ -67,10 +67,10 @@ public class ThemSPActivity extends AppCompatActivity {
     }
 
     private void themSanpham() {
-        String str_tensp = binding.tensp.toString().trim();
-        String str_giasp = binding.giasp.toString().trim();
-        String str_hinhanh = binding.hinhanh.toString().trim();
-        String str_mota = binding.mota.toString().trim();
+        String str_tensp = binding.tensp.getText().toString().trim();
+        String str_giasp = binding.giasp.getText().toString().trim();
+        String str_hinhanh = binding.hinhanh.getText().toString().trim();
+        String str_mota = binding.mota.getText().toString().trim();
         if (TextUtils.isEmpty(str_tensp) || TextUtils.isEmpty(str_giasp) ||
                 TextUtils.isEmpty(str_mota) || TextUtils.isEmpty(str_hinhanh) || type == 0) {
             Toast.makeText(getApplicationContext(), "Vui lòng nhập đủ thông tin", Toast.LENGTH_LONG).show();
