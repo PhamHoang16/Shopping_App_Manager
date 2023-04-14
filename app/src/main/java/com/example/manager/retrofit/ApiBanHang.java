@@ -1,5 +1,6 @@
 package com.example.manager.retrofit;
 
+import com.example.manager.model.MessageModel;
 import com.example.manager.model.NewProductModel;
 import com.example.manager.model.OrderModel;
 import com.example.manager.model.ProductCategoryModel;
@@ -20,8 +21,8 @@ public interface ApiBanHang {
     @POST("chitiet.php")
     @FormUrlEncoded
     Observable<NewProductModel> getProduct(
-         @Field("page") int page,
-         @Field("type") int type
+            @Field("page") int page,
+            @Field("type") int type
 
     );
 
@@ -69,5 +70,15 @@ public interface ApiBanHang {
     @FormUrlEncoded
     Observable<NewProductModel> search(
             @Field("search") String search
+    );
+
+    @POST("themsp.php")
+    @FormUrlEncoded
+    Observable<MessageModel> addProduct(
+            @Field("name") String name,
+            @Field("price") String price,
+            @Field("picture") String total_price,
+            @Field("description") String description,
+            @Field("type") int type
     );
 }
