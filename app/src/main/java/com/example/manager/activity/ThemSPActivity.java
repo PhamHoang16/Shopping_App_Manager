@@ -76,7 +76,7 @@ public class ThemSPActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Vui lòng nhập đủ thông tin", Toast.LENGTH_LONG).show();
 
         } else {
-            compositeDisposable.add(apiBanHang.addProduct(str_tensp, str_giasp, str_hinhanh, str_mota, type-1)
+            compositeDisposable.add(apiBanHang.addProduct(str_tensp, str_giasp, str_hinhanh, str_mota, type)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(

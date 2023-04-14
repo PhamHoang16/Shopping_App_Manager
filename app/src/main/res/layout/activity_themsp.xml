@@ -27,10 +27,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tensp"
             android:hint="Tên sản phẩm"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -45,10 +44,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/giasp"
             android:hint="Giá"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -82,6 +80,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/mota"
             android:hint="Mô tả"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>

@@ -1,36 +1,36 @@
 package com.example.manager.model;
 
 public class ProductCategory {
-    int ID;
-    String Name;
-    String Picture;
+    int id;
+    String name;
+    String picture;
 
     public ProductCategory(String name, String picture) {
-        Name = name;
-        Picture = picture;
+        this.name = name;
+        this.picture = picture;
     }
 
     public int getId() {
-        return ID;
+        return id;
     }
 
     public void setId(int id) {
-        this.ID = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getPicture() {
-        return Picture;
+        return picture;
     }
 
     public void setPicture(String picture) {
-        Picture = picture;
+        this.picture = picture;
     }
 }

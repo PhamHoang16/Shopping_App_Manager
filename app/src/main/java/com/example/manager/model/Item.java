@@ -2,9 +2,9 @@ package com.example.manager.model;
 
 public class Item {
     int idsp;
-    String Name;
+    String name;
     int num;
-    String Picture;
+    String picture;
 
     public int getNum() {
         return num;
@@ -15,11 +15,11 @@ public class Item {
     }
 
     public String getPicture() {
-        return Picture;
+        return picture;
     }
 
     public void setPicture(String picture) {
-        this.Picture = picture;
+        this.picture = picture;
     }
 
     public int getIdsp() {
@@ -31,10 +31,10 @@ public class Item {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 }
