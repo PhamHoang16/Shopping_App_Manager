@@ -7,14 +7,20 @@ import com.example.manager.model.ProductCategoryModel;
 import com.example.manager.model.UserModel;
 
 import io.reactivex.rxjava3.core.Observable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface ApiBanHang {
     @GET("getProduct.php")
     Observable<ProductCategoryModel> getProductCategory();
+
     @GET("getNewProduct.php")
     Observable<NewProductModel> getNewProduct();
 
@@ -81,4 +87,10 @@ public interface ApiBanHang {
             @Field("description") String description,
             @Field("type") int type
     );
+
+    @Multipart
+    @POST("uploadImage.php")
+    Call<MessageModel> uploadFile(@Part MultipartBody.Part file);
 }
+
+
