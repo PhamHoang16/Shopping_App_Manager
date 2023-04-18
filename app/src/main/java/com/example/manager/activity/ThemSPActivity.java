@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.manager.R;
 import com.example.manager.databinding.ActivityThemspBinding;
 import com.example.manager.model.MessageModel;
+import com.example.manager.model.NewProduct;
 import com.example.manager.retrofit.ApiBanHang;
 import com.example.manager.retrofit.RetrofitClient;
 import com.example.manager.utils.Utils;
@@ -45,6 +46,8 @@ public class ThemSPActivity extends AppCompatActivity {
     ApiBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     String mediaPath;
+    NewProduct productSua;
+    boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,23 @@ public class ThemSPActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         initView();
         initData();
+        Intent intent = getIntent();
+        productSua = (NewProduct) intent.getSerializableExtra("sua");
+        if (productSua == null) {
+            //themsp
+            flag = false;
+        } else {
+            //suasp
+            flag = true;
+            binding.btnThemsp.setText("Sửa sản phẩm");
+            //show data
+            binding.mota.setText(productSua.getDescription());
+            binding.giasp.setText(productSua.getPrice()+"");
+            binding.tensp.setText(productSua.getName());
+            binding.hinhanh.setText(productSua.getPicture());
+            binding.spinnerLoai.setSelection(productSua.getType());
+        }
+
     }
 
     private void initData() {
@@ -77,7 +97,11 @@ public class ThemSPActivity extends AppCompatActivity {
         binding.btnThemsp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                themSanpham();
+                if (!flag) {
+                    themSanpham();
+                } else {
+                    suasanpham();
+                }
             }
         });
         binding.imgcamera.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +114,38 @@ public class ThemSPActivity extends AppCompatActivity {
                         .start();
             }
         });
+    }
+
+    private void suasanpham() {
+        String str_tensp = binding.tensp.getText().toString().trim();
+        String str_giasp = binding.giasp.getText().toString().trim();
+        String str_hinhanh = binding.hinhanh.getText().toString().trim();
+        String str_mota = binding.mota.getText().toString().trim();
+        if (TextUtils.isEmpty(str_tensp) || TextUtils.isEmpty(str_giasp) ||
+                TextUtils.isEmpty(str_mota) || TextUtils.isEmpty(str_hinhanh) || type == 0) {
+            Toast.makeText(getApplicationContext(), "Vui lòng nhập đủ thông tin", Toast.LENGTH_LONG).show();
+
+        } else {
+            compositeDisposable.add(apiBanHang.updateProduct(str_tensp, str_giasp, str_hinhanh, str_mota, type, productSua.getID())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                            messageModel -> {
+                                if (messageModel.isSuccess()) {
+                                    Toast.makeText(getApplicationContext(), messageModel.getMessage(), Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), messageModel.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+
+
+                            },
+                            throwable -> {
+                                Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+
+                            }
+                    ));
+
+        }
     }
 
     @Override
@@ -148,7 +204,6 @@ public class ThemSPActivity extends AppCompatActivity {
 
         private void uploadMultipleFiles() {
             Uri uri = Uri.parse(mediaPath);
-
             File file = new File(getPath(uri));
             RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
             MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
@@ -160,11 +215,12 @@ public class ThemSPActivity extends AppCompatActivity {
                     if (serverResponse != null) {
                         if (serverResponse.isSuccess()) {
                             binding.hinhanh.setText(serverResponse.getName());
+                            //Toast.makeText(getApplicationContext(), serverResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getApplicationContext(), serverResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        assert serverResponse != null;
+                        //assert serverResponse != null;
                         Log.v("Response", serverResponse.toString());
                     }
                 }

@@ -78,6 +78,13 @@ public interface ApiBanHang {
             @Field("search") String search
     );
 
+    @POST("delete.php")
+    @FormUrlEncoded
+    Observable<MessageModel> xoaSanpham(
+            @Field("id") int id
+    );
+
+
     @POST("themsp.php")
     @FormUrlEncoded
     Observable<MessageModel> addProduct(
@@ -86,6 +93,17 @@ public interface ApiBanHang {
             @Field("picture") String picture,
             @Field("description") String description,
             @Field("type") int type
+    );
+
+    @POST("updateSp.php")
+    @FormUrlEncoded
+    Observable<MessageModel> updateProduct(
+            @Field("name") String name,
+            @Field("price") String price,
+            @Field("picture") String picture,
+            @Field("description") String description,
+            @Field("type") int type,
+            @Field("id") int id
     );
 
     @Multipart

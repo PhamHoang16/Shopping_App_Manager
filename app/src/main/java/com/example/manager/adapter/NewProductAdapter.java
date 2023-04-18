@@ -3,6 +3,7 @@ package com.example.manager.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,11 @@ import com.bumptech.glide.Glide;
 import com.example.manager.Interface.ItemClickListener;
 import com.example.manager.R;
 import com.example.manager.activity.ChiTietActivity;
+import com.example.manager.model.EventBus.SuaXoaEvent;
 import com.example.manager.model.NewProduct;
 import com.example.manager.utils.Utils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -60,6 +64,8 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.My
                     intent.putExtra("chitiet", newProduct);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
+                } else {
+                    EventBus.getDefault().postSticky(new SuaXoaEvent(newProduct));
                 }
             }
         });
@@ -70,7 +76,7 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.My
         return arr.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener, View.OnLongClickListener {
         TextView textPrice, textName;
         ImageView imgPicture;
         private ItemClickListener itemClickListener;
@@ -80,6 +86,8 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.My
             textName = itemView.findViewById(R.id.new_product_name);
             imgPicture = itemView.findViewById(R.id.new_product_image);
             itemView.setOnClickListener(this);
+            itemView.setOnCreateContextMenuListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -89,6 +97,18 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.My
         @Override
         public void onClick(View view) {
             itemClickListener.onClick(view, getAdapterPosition(), false);
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            contextMenu.add(0, 0, getAdapterPosition(), "Sửa");
+            contextMenu.add(0, 1, getAdapterPosition(), "Xoá");
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            itemClickListener.onClick(view, getAdapterPosition(), true);
+            return false;
         }
     }
 }
