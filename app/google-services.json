@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "306581414797",
+    "project_id": "tikitaka-4d85c",
+    "storage_bucket": "tikitaka-4d85c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306581414797:android:98dd8dfc0a394dfa4313c4",
+        "android_client_info": {
+          "package_name": "com.example.manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306581414797-nl45ur5fa7nrmtc86v3fo7rh35ev2j44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf1vgd2qDClRCouxzhArpCCrLD44aTaLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306581414797-nl45ur5fa7nrmtc86v3fo7rh35ev2j44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306581414797:android:a2ea1636d8f159644313c4",
+        "android_client_info": {
+          "package_name": "com.example.tikitaka_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306581414797-nl45ur5fa7nrmtc86v3fo7rh35ev2j44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf1vgd2qDClRCouxzhArpCCrLD44aTaLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306581414797-nl45ur5fa7nrmtc86v3fo7rh35ev2j44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

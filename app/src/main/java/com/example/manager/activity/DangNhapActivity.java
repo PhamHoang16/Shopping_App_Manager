@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -16,6 +17,11 @@ import com.example.manager.R;
 import com.example.manager.retrofit.ApiBanHang;
 import com.example.manager.retrofit.RetrofitClient;
 import com.example.manager.utils.Utils;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import io.paperdb.Paper;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -25,6 +31,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class DangNhapActivity extends AppCompatActivity {
     TextView txtdangky, txtresetpass;
     EditText email, pass;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
     AppCompatButton btndangnhap;
     ApiBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -67,7 +75,20 @@ public class DangNhapActivity extends AppCompatActivity {
                     Paper.book().write("email", str_email);
                     Paper.book().write("pass", str_pass);
 
-                    signIn(str_email, str_pass);
+                    if (firebaseUser != null) {
+                        signIn(str_email, str_pass);
+                    } else {
+                        firebaseAuth.signInWithEmailAndPassword(str_email, str_pass)
+                                .addOnCompleteListener(DangNhapActivity.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+                                            signIn(str_email, str_pass);
+                                        }
+                                    }
+                                });
+                    }
+
                 }
             }
         });
@@ -81,6 +102,8 @@ public class DangNhapActivity extends AppCompatActivity {
         email = findViewById(R.id.email_signin);
         pass = findViewById(R.id.pass_signin);
         btndangnhap = findViewById(R.id.btndangnhap);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
 
         if (Paper.book().read("email") != null && Paper.book().read("pass") != null) {
             email.setText(Paper.book().read("email"));
@@ -100,6 +123,7 @@ public class DangNhapActivity extends AppCompatActivity {
     }
 
     private void signIn(String email, String pass) {
+
         compositeDisposable.add(apiBanHang.dangnhap(email, pass)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

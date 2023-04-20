@@ -28,6 +28,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -215,12 +216,10 @@ public class ThemSPActivity extends AppCompatActivity {
                     if (serverResponse != null) {
                         if (serverResponse.isSuccess()) {
                             binding.hinhanh.setText(serverResponse.getName());
-                            //Toast.makeText(getApplicationContext(), serverResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getApplicationContext(), serverResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        //assert serverResponse != null;
                         Log.v("Response", serverResponse.toString());
                     }
                 }
