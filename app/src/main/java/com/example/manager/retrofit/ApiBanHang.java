@@ -38,7 +38,9 @@ public interface ApiBanHang {
             @Field("email") String email,
             @Field("password") String pass,
             @Field("username") String name,
-            @Field("mobile") String mobile
+            @Field("mobile") String mobile,
+            @Field("uid") String uid
+
     );
 
     @POST("signin.php")
@@ -104,6 +106,13 @@ public interface ApiBanHang {
             @Field("description") String description,
             @Field("type") int type,
             @Field("id") int id
+    );
+
+    @POST("updatetoken.php")
+    @FormUrlEncoded
+    Observable<MessageModel> updateToken(
+            @Field("id") int id,
+            @Field("token") String token
     );
 
     @Multipart
