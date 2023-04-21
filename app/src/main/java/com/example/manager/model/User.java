@@ -6,7 +6,6 @@ public class User {
     String password;
     String username;
     String mobile;
-
     String uid;
 
     public int getId() {

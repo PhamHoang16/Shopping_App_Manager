@@ -30,7 +30,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class DangNhapActivity extends AppCompatActivity {
     TextView txtdangky, txtresetpass;
-    EditText email, pass;
+    EditText email, password;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     AppCompatButton btndangnhap;
@@ -66,14 +66,14 @@ public class DangNhapActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String str_email = email.getText().toString().trim();
-                String str_pass = pass.getText().toString().trim();
+                String str_pass = password.getText().toString().trim();
                 if (TextUtils.isEmpty(str_email)) {
                     Toast.makeText(getApplicationContext(), "Bạn chưa nhập Email!", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(str_pass)) {
                     Toast.makeText(getApplicationContext(), "Bạn chưa nhập mật khẩu!", Toast.LENGTH_LONG).show();
                 } else {
                     Paper.book().write("email", str_email);
-                    Paper.book().write("pass", str_pass);
+                    Paper.book().write("password", str_pass);
 
                     if (firebaseUser != null) {
                         signIn(str_email, str_pass);
@@ -100,14 +100,14 @@ public class DangNhapActivity extends AppCompatActivity {
         txtdangky = findViewById(R.id.txtdangky);
         txtresetpass = findViewById(R.id.txtresetpass);
         email = findViewById(R.id.email_signin);
-        pass = findViewById(R.id.pass_signin);
+        password = findViewById(R.id.pass_signin);
         btndangnhap = findViewById(R.id.btndangnhap);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
         if (Paper.book().read("email") != null && Paper.book().read("pass") != null) {
             email.setText(Paper.book().read("email"));
-            pass.setText(Paper.book().read("pass"));
+            password.setText(Paper.book().read("pass"));
             if (Paper.book().read("isLogin") != null) {
                 boolean flag = Paper.book().read("isLogin");
                 if (flag) {
@@ -154,7 +154,7 @@ public class DangNhapActivity extends AppCompatActivity {
         super.onResume();
         if (Utils.user_current.getEmail() != null && Utils.user_current.getPassword() != null) {
             email.setText(Utils.user_current.getEmail());
-            pass.setText(Utils.user_current.getPassword());
+            password.setText(Utils.user_current.getPassword());
         }
     }
 
