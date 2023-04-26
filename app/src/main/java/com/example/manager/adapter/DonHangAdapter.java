@@ -38,6 +38,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Order order = listOrder.get(position);
         holder.txtdonhang.setText("Đơn hàng: " + order.getId() + " ");
+        holder.status.setText(orderStatus(order.getStatus()));
         LinearLayoutManager layoutManager = new LinearLayoutManager(
             holder.reChitiet.getContext(),
                 LinearLayoutManager.VERTICAL,
@@ -52,6 +53,29 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.MyViewHo
 
     }
 
+    private String orderStatus(int status) {
+        String result = "";
+        switch (status) {
+            case 0:
+                result = "Đơn hàng đang được xử lý";
+                break;
+            case 1:
+                result = "Đơn hàng đã được chấp nhận";
+                break;
+            case 2:
+                result = "Đơn hàng đã được giao cho đơn vị vận chuyển";
+                break;
+            case 3:
+                result = "Đơn hàng đã được giao";
+                break;
+            case 4:
+                result = "Đơn hàng đã bị huỷ";
+                break;
+        }
+
+        return result;
+    }
+
     @Override
     public int getItemCount() {
         return listOrder.size();
@@ -59,12 +83,13 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.MyViewHo
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView txtdonhang;
+        TextView txtdonhang, status;
         RecyclerView reChitiet;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtdonhang = itemView.findViewById(R.id.iddonhang);
+            status = itemView.findViewById(R.id.order_status);
             reChitiet = itemView.findViewById(R.id.recycleview_chitiet);
         }
     }

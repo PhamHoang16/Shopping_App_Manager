@@ -36,7 +36,7 @@ public class RecordActivity extends AppCompatActivity {
 
 
     private void getOrder() {
-        compositeDisposable.add(apiBanHang.viewOrder(Utils.user_current.getId())
+        compositeDisposable.add(apiBanHang.viewOrder(0)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

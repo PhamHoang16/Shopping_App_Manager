@@ -54,14 +54,17 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btndangnhap"
-        app:layout_constraintTop_toBottomOf="@+id/line2"
-        android:background="@color/colortext"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:text="ĐĂNG NHẬP"
+        android:textAllCaps="false"
         android:layout_marginTop="10dp"
-        android:text="Đăng nhập"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        app:layout_constraintTop_toBottomOf="@+id/line2"
+        android:textColor="@color/white"/>
+
     <LinearLayout
         android:id="@+id/line6"
         android:layout_marginTop="10dp"
