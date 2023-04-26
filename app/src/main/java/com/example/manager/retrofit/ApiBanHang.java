@@ -115,6 +115,13 @@ public interface ApiBanHang {
             @Field("token") String token
     );
 
+    @POST("updateOrder.php")
+    @FormUrlEncoded
+    Observable<MessageModel> updateOrder(
+            @Field("id") int id,
+            @Field("status") int status
+    );
+
     @Multipart
     @POST("uploadImage.php")
     Call<MessageModel> uploadFile(@Part MultipartBody.Part file);

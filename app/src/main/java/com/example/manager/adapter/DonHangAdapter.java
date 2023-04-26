@@ -10,8 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.manager.Interface.ItemClickListener;
 import com.example.manager.R;
+import com.example.manager.model.EventBus.OrderEvent;
 import com.example.manager.model.Order;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -50,7 +54,14 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.MyViewHo
         holder.reChitiet.setLayoutManager(layoutManager);
         holder.reChitiet.setAdapter(chiTietAdapter);
         holder.reChitiet.setRecycledViewPool(viewPool);
-
+        holder.setListener(new ItemClickListener() {
+            @Override
+            public void onClick(View view, int pos, boolean isLongCLick) {
+                if (isLongCLick) {
+                    EventBus.getDefault().postSticky(new OrderEvent(order));
+                }
+            }
+        });
     }
 
     private String orderStatus(int status) {
@@ -82,15 +93,28 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.MyViewHo
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         TextView txtdonhang, status;
         RecyclerView reChitiet;
+        ItemClickListener listener;
+
+        public void setListener(ItemClickListener listener) {
+            this.listener = listener;
+        }
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtdonhang = itemView.findViewById(R.id.iddonhang);
             status = itemView.findViewById(R.id.order_status);
             reChitiet = itemView.findViewById(R.id.recycleview_chitiet);
+            itemView.setOnLongClickListener(this);
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            listener.onClick(v, getAdapterPosition(), true);
+            return false;
         }
     }
+
 }
