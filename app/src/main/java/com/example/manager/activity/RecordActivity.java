@@ -2,6 +2,7 @@ package com.example.manager.activity;
 
 import android.media.metrics.Event;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,9 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.manager.R;
 import com.example.manager.adapter.DonHangAdapter;
 import com.example.manager.model.EventBus.OrderEvent;
+import com.example.manager.model.NotiSendData;
 import com.example.manager.model.Order;
 import com.example.manager.retrofit.ApiBanHang;
+import com.example.manager.retrofit.ApiPushNotification;
 import com.example.manager.retrofit.RetrofitClient;
+import com.example.manager.retrofit.RetrofitClientNoti;
 import com.example.manager.utils.Utils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -28,7 +32,9 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -142,11 +148,71 @@ public class RecordActivity extends AppCompatActivity {
                 .subscribe(
                         messageModel -> {
                             getOrder();
+                            dialog.dismiss();
+                            pushNotiToUser();
                         },
                         throwable -> {
 
                         }
                 ));
+    }
+
+    private void pushNotiToUser() {
+        //get token
+        compositeDisposable.add(apiBanHang.getToken(0, order.getUser_id())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        userModel -> {
+                            if (userModel.isSuccess()) {
+                                for (int i = 0; i < userModel.getResult().size(); i++) {
+                                    Map<String, String> data = new HashMap<>();
+                                    data.put("title", "TikiTaka");
+                                    data.put("body", "New order status");
+                                    NotiSendData notiSendData = new NotiSendData(userModel.getResult().get(i).getToken(), data);
+                                    ApiPushNotification apiPushNotification = RetrofitClientNoti.getInstance().create(ApiPushNotification.class);
+                                    compositeDisposable.add(apiPushNotification.sendNotification(notiSendData)
+                                            .subscribeOn(Schedulers.io())
+                                            .observeOn(AndroidSchedulers.mainThread())
+                                            .subscribe(
+                                                    notiResponse -> {
+
+                                                    },
+                                                    throwable -> {
+                                                        Log.d("log", throwable.getMessage());
+                                                    }
+                                            ));
+                                }
+                            }
+                        },
+                        throwable -> {
+                            Log.d("logg", throwable.getMessage());
+                        }
+                )
+        );
+    }
+
+    private String orderStatus(int status) {
+        String result = "";
+        switch (status) {
+            case 0:
+                result = "Đơn hàng đang được xử lý";
+                break;
+            case 1:
+                result = "Đơn hàng đã được chấp nhận";
+                break;
+            case 2:
+                result = "Đơn hàng đã được giao cho đơn vị vận chuyển";
+                break;
+            case 3:
+                result = "Đơn hàng đã được giao";
+                break;
+            case 4:
+                result = "Đơn hàng đã bị huỷ";
+                break;
+        }
+
+        return result;
     }
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)

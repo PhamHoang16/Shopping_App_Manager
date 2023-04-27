@@ -58,13 +58,11 @@ public class ChiTietActivity extends AppCompatActivity {
             for (int i = 0; i < Utils.arr_giohang.size(); i++) {
                 if (Utils.arr_giohang.get(i).getIdsp() == newProduct.getID()) {
                     Utils.arr_giohang.get(i).setNum(num + Utils.arr_giohang.get(i).getNum());
-                    long price = Long.parseLong(newProduct.getPrice()) * Utils.arr_giohang.get(i).getNum();
-                    Utils.arr_giohang.get(i).setPrice(price);
                     flag = true;
                 }
             }
             if (flag == false) {
-                long price = Long.parseLong(newProduct.getPrice()) * num;
+                long price = Long.parseLong(newProduct.getPrice());
                 GioHang gioHang = new GioHang();
                 gioHang.setPrice(price);
                 gioHang.setNum(num);
@@ -75,7 +73,7 @@ public class ChiTietActivity extends AppCompatActivity {
             }
         } else {
             int num = Integer.parseInt(spinner.getSelectedItem().toString());
-            long price = Long.parseLong(newProduct.getPrice()) * num;
+            long price = Long.parseLong(newProduct.getPrice());
             GioHang gioHang = new GioHang();
             gioHang.setPrice(price);
             gioHang.setNum(num);

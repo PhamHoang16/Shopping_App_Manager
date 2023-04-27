@@ -6,8 +6,16 @@ public class User {
     String password;
     String username;
     String mobile;
-
     String uid;
+    String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public int getId() {
         return id;
