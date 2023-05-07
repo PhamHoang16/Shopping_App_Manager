@@ -190,6 +190,11 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         break;
                     case 8:
+                        Intent chat = new Intent(getApplicationContext(), UserActivity.class);
+                        startActivity(chat);
+                        finish();
+                        break;
+                    case 9:
                         Paper.book().delete("user");
                         FirebaseAuth.getInstance().signOut();
                         Intent signin = new Intent(getApplicationContext(), DangNhapActivity.class);
@@ -228,8 +233,9 @@ public class MainActivity extends AppCompatActivity {
                         productCategoryModel -> {
                             if (productCategoryModel.isSuccess()) {
                                 ProductList = productCategoryModel.getResult();
-                                ProductList.add(new ProductCategory("Quản lí", ""));
-                                ProductList.add(new ProductCategory("Đăng xuất", ""));
+                                ProductList.add(new ProductCategory("Quản lí", "https://drive.google.com/uc?export=view&id=1DFA7LdnvUk2sEnsmkYHWif0v-eDIVLC5"));
+                                ProductList.add(new ProductCategory("Tin nhắn", "https://drive.google.com/uc?export=view&id=16jEW-b1MQUCZg62MI_0DvZY-LvuKSwea"));
+                                ProductList.add(new ProductCategory("Đăng xuất", "https://drive.google.com/uc?export=view&id=1Q9BNvOLw9vNWe7_CMDOebIeMdyrH6HU0"));
                                 // khoi tao adapter
                                 productCategoryAdapter = new productCategoryAdapter(getApplicationContext(), ProductList);
                                 listViewManHinhChinh.setAdapter(productCategoryAdapter);

@@ -36,7 +36,7 @@ public interface ApiBanHang {
     @FormUrlEncoded
     Observable<UserModel> dangky(
             @Field("email") String email,
-            @Field("password") String pass,
+            @Field("password") String password,
             @Field("username") String name,
             @Field("mobile") String mobile,
             @Field("uid") String uid
@@ -47,7 +47,7 @@ public interface ApiBanHang {
     @FormUrlEncoded
     Observable<UserModel> dangnhap(
             @Field("email") String email,
-            @Field("password") String pass
+            @Field("password") String password
     );
 
     @POST("send_link.php")

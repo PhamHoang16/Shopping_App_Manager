@@ -56,15 +56,15 @@ public class DangKyActivity extends AppCompatActivity {
         String str_username = username.getText().toString().trim();
         String str_mobile = mobile.getText().toString().trim();
         if (TextUtils.isEmpty(str_email)) {
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập Email!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Bạn chưa nhập Email!", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(str_pass)) {
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập mật khẩu!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Bạn chưa nhập mật khẩu!", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(str_repass)) {
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập lại mật khẩu!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Bạn chưa nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(str_username)) {
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập username!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Bạn chưa nhập username!", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(str_mobile)) {
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập số điện thoại!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Bạn chưa nhập số điện thoại!", Toast.LENGTH_SHORT).show();
         } else {
             if (str_pass.equals(str_repass)) {
                 firebaseAuth = FirebaseAuth.getInstance();
@@ -78,7 +78,7 @@ public class DangKyActivity extends AppCompatActivity {
                                         postData(str_email, str_pass, str_username, str_mobile, firebaseUser.getUid());
                                     }
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Email đã tồn tại", Toast.LENGTH_SHORT).show();;
+                                    Toast.makeText(getApplicationContext(), "This email has been used!@", Toast.LENGTH_SHORT).show();;
                                 }
                             }
                         });
@@ -95,18 +95,18 @@ public class DangKyActivity extends AppCompatActivity {
                 .subscribe(
                         userModel -> {
                             if (userModel.isSuccess()) {
-                                Toast.makeText(getApplicationContext(), "Đăng ký thành công!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                                 Utils.user_current.setEmail(str_email);
                                 Utils.user_current.setPassword(str_pass);
                                 Intent intent = new Intent(getApplicationContext(), DangNhapActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else {
-                                Toast.makeText(getApplicationContext(), userModel.getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), userModel.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         },
                         throwable -> {
-                            Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                 ));
     }
