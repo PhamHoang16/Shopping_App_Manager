@@ -15,6 +15,9 @@
         android:theme="@style/Theme.TikiTaka_1"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.UserActivity"
             android:exported="false" />
         <activity
@@ -74,7 +77,6 @@
         <activity
             android:name=".activity.MainActivity"
             android:exported="true" />
-
         <service
             android:name=".Service.FirebaseMessagerReceiver"
             android:exported="true">

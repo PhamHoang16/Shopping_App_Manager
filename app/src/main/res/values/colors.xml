@@ -12,6 +12,7 @@
     <color name="background_color">#ecf0f3</color>
     <color name="highlight">#ffffff</color>
     <color name="shadow_color">#d9dbde</color>
+    <color name = "orange">#EE4D2D</color>
 
 
 </resources>
