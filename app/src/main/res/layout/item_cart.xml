@@ -26,6 +26,7 @@
                 android:textStyle="bold"
                 android:layout_marginLeft="10dp"
                 android:text="@string/t_n_s_n_ph_m2"
+                android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <LinearLayout
