@@ -66,6 +66,7 @@ public class ThemSPActivity extends AppCompatActivity {
             //suasp
             flag = true;
             binding.btnThemsp.setText("Sửa sản phẩm");
+            binding.toolbarThemsp.setTitle("Sửa sản phẩm");
             //show data
             binding.mota.setText(productSua.getDescription());
             binding.giasp.setText(productSua.getPrice()+"");

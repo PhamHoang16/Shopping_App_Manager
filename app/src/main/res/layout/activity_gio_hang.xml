@@ -34,9 +34,9 @@
     <LinearLayout
         android:id="@+id/layout1"
         android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/btnmuahang"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -45,7 +45,7 @@
             android:layout_marginLeft="10dp"
             android:padding="5dp"
             android:textSize="18sp"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -53,23 +53,24 @@
             android:layout_weight="1"
             android:gravity="right"
             android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
             android:padding="5dp"
             android:id="@+id/tongtien"
             android:text="@string/_50_000"
             android:textSize="18sp"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        <Button
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/btnmuahang"
+            android:text="@string/mua_h_ng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
-    <Button
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:id="@+id/btnmuahang"
-        android:text="@string/mua_h_ng"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

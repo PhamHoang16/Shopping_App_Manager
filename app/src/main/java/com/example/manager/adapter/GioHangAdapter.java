@@ -50,7 +50,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         holder.item_cart_price.setText(decimalFormat.format(gioHang.getPrice()) + "đ");
         long totalprice =  gioHang.getNum() * gioHang.getPrice();
-        holder.item_cart_totalprice.setText(decimalFormat.format(totalprice));
+        holder.item_cart_totalprice.setText(decimalFormat.format(totalprice) + " đ");
         Glide.with(context).load(gioHang.getPicture()).into(holder.item_cart_img);
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
